@@ -127,9 +127,9 @@ const navItems = [
      { label: 'DESIGN AND ENGINEERING', routeName: ROUTE_NAME.DESIGN_ENGINEERING },
      {label: 'MANUFACTURING', routeName: ROUTE_NAME.MANUFACTURING },
      {label: 'BUILDS AND FIT OUTS', routeName: ROUTE_NAME.BUILDS_FITOUTS },
-     {label: 'TRIMS AND ACCESSORIES', routeName: " "},
-     {label: 'AUTO ELECTRICS', routeName: "" },
-     {label: 'SERVICING AND MAINTENANCE', routeName: "" }
+     {label: 'TRIMS AND ACCESSORIES', routeName: ROUTE_NAME.TRIMS_ACCESSORIES },
+     {label: 'AUTO ELECTRICS', routeName: ROUTE_NAME.AUTO_ELECTRICS },
+     {label: 'SERVICING AND MAINTENANCE', routeName: ROUTE_NAME.SERVICING_MAINTENANCE }
     ]
   },
   { label: 'SPECIALISATION', routeName: "" },
