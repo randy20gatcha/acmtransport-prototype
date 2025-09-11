@@ -11,7 +11,7 @@
          >
            <v-img
              :src="logo"
-             alt="FEELDX Logo"
+             alt="acmtransport logo"
              height="100"
              width="170"
              contain
