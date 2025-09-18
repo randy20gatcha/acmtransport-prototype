@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router"
 
 const components = {
   HOME: () => import("../layouts/DefaultLayout.vue"),
+  ABOUT_US: () => import("../views/AboutUs.vue"),
   AUTO_ELECTRICS: () => import("../views/AutoElectrics.vue"),
   BUILDS_FITOUTS: () => import("../views/BuildsFitOuts.vue"),
   SERVICES: () => import("../views/Services.vue"),
@@ -13,6 +14,7 @@ const components = {
 
 export const ROUTE_NAME = {
   HOME: "home",
+  ABOUT_US: "about_us",
   AUTO_ELECTRICS: "auto_electrics",
   BUILDS_FITOUTS: "builds_fitouts",
   SERVICES: "services",
@@ -27,6 +29,11 @@ export const routes = [
     path: "/",
     name: ROUTE_NAME.HOME,
     component: components.HOME
+  },
+   {
+    path: "/about-us",
+    name: ROUTE_NAME.ABOUT_US,
+    component: components.ABOUT_US
   },
    {
     path: "/builds-fitouts",

@@ -31,7 +31,6 @@
               <v-list-item
                 v-for="link in links"
                 :key="link.label"
-                :href="link.href"
                 class="px-0"
               >
                 {{ link.label }}
@@ -42,17 +41,37 @@
 
         <!-- Contact Info -->
         <v-col cols="12" md="6">
-          <v-card class="pa-4" elevation="2">
-            <h4 class="text-subtitle-1 font-weight-medium">Contact Us</h4>
+          <v-card class="pa-4 text-center" elevation="2" title="Contact Us">
             <div class="text-body-2">
               <div>
-                <v-icon size="18" class="mr-1">mdi-phone</v-icon>
-                1800 333 539
+                <v-btn class="drawer-item" flat>
+                 <template #prepend>
+                   <v-icon>mdi-phone</v-icon>
+                 </template>        
+                 <span class="text-h6">03 8679 6888</span>
+               </v-btn>
               </div>
               <div class="mt-2">
-                <v-icon size="18" class="mr-1">mdi-map-marker</v-icon>
-                <span>WATERMAN BUSINESS CENTRE Suite 70,</span><br>
-                <span class="ml-6">44 LAKEVIEW DR SCORESBY 3179</span>
+               <v-list>
+                 <v-list-item
+                   v-for="contact in contacts"
+                   :key="contact.label"
+                   :title="contact.label"
+                   :lines="contact.children ? false : 'two'"
+                 >
+                   <!-- Default case: subtitle is just a string -->
+                   <template v-if="contact.value" #subtitle>
+                     {{ contact.value }}
+                   </template>
+               
+                   <!-- Special case: HOURS with children -->
+                   <template v-else-if="contact.children" #subtitle>
+                     <div v-for="(child, i) in contact.children" :key="i">
+                       <strong>{{ child.label }}:</strong> {{ child.hours }}
+                     </div>
+                   </template>
+                 </v-list-item>
+               </v-list>
               </div>
             </div>
           </v-card>
@@ -73,20 +92,35 @@
 </template>
 
 <script setup lang="ts">
-import logo from '../assets/acmtransport-logo.png'
+import logo from "../assets/acmtransport-logo.png";
+import { ROUTE_NAME } from "../router/index";
 
 const links = [
-  { label: 'STUDIO', href: "_blank" },
-  { label: 'PROJECT CONTROL', href: "_blank" },
-  { label: 'SERVICES', href: "_blank" },
-  { label: 'TECHNOLOGY', href: "_blank" },
-  { label: 'OUR WORK', href: "_blank" },
-  { label: 'CONTACT US', href: "_blank" },
-  {
-    label: 'ABOUT US',
-    children: ['Our Team', 'Our Story'],
-    href: "_blank"
+  { label: 'HOME', routeName: ROUTE_NAME.HOME},
+  { label: 'ABOUT US', routeName: ROUTE_NAME.ABOUT_US },
+  { label: 'SERVICES',
+    children: [
+     { label: 'DESIGN AND ENGINEERING', routeName: ROUTE_NAME.DESIGN_ENGINEERING },
+     { label: 'MANUFACTURING', routeName: ROUTE_NAME.MANUFACTURING },
+     { label: 'BUILDS AND FIT OUTS', routeName: ROUTE_NAME.BUILDS_FITOUTS },
+     { label: 'TRIMS AND ACCESSORIES', routeName: ROUTE_NAME.TRIMS_ACCESSORIES },
+     { label: 'AUTO ELECTRICS', routeName: ROUTE_NAME.AUTO_ELECTRICS },
+     { label: 'SERVICING AND MAINTENANCE', routeName: ROUTE_NAME.SERVICING_MAINTENANCE }
+    ]
   },
-  { label: 'NEWS', href: "_blank" }
+  { label: 'SPECIALISATION', routeName: "" },
+  { label: 'CONTACT US', routeName: "" }
+]
+
+const contacts = [
+  { label: "ADDRESS", value: "25 Castro Way, Derrimut, Vic, 3026 AUS" },
+  { label: "EMAIL", value: "info@acmtransport.com.au"},
+  { label: "HOURS",
+    children: [
+      { label: "Mon - Thurs", hours: "7AM - 3:30PM" },
+      { label: "Fri - Sat", hours: "7AM - 1PM" },
+      { label: "Sun", hours: "CLOSED"}
+    ]
+  }
 ]
 </script>

@@ -27,7 +27,7 @@
           class="text-button mx-2"
           :class="{ 'is-home-active': route.path === '/' && item.label === 'HOME' }"
           size="x-large"
-          @click="goToRoute(item.label)"
+          @click="goToRoute(item.routeName)"
         >        
           <span class="text-h6">{{ item.label }}</span>
         </v-btn>
@@ -113,23 +113,21 @@ import logo from '../assets/acmtransport-logo.png';
 import { ROUTE_NAME } from "../router/index";
 import router from "../router";
 import { useRoute } from "vue-router";
-// import logo from '../assets/logo.png'
 
 const drawer = ref(false);
 const route = useRoute();
-// const url = 'https://randy20gatcha.github.io/homepage-prototype/'
 
 const navItems = [
   { label: 'HOME', routeName: ROUTE_NAME.HOME},
-  { label: 'ABOUT US' },
+  { label: 'ABOUT US', routeName: ROUTE_NAME.ABOUT_US },
   { label: 'SERVICES',
     children: [
      { label: 'DESIGN AND ENGINEERING', routeName: ROUTE_NAME.DESIGN_ENGINEERING },
-     {label: 'MANUFACTURING', routeName: ROUTE_NAME.MANUFACTURING },
-     {label: 'BUILDS AND FIT OUTS', routeName: ROUTE_NAME.BUILDS_FITOUTS },
-     {label: 'TRIMS AND ACCESSORIES', routeName: ROUTE_NAME.TRIMS_ACCESSORIES },
-     {label: 'AUTO ELECTRICS', routeName: ROUTE_NAME.AUTO_ELECTRICS },
-     {label: 'SERVICING AND MAINTENANCE', routeName: ROUTE_NAME.SERVICING_MAINTENANCE }
+     { label: 'MANUFACTURING', routeName: ROUTE_NAME.MANUFACTURING },
+     { label: 'BUILDS AND FIT OUTS', routeName: ROUTE_NAME.BUILDS_FITOUTS },
+     { label: 'TRIMS AND ACCESSORIES', routeName: ROUTE_NAME.TRIMS_ACCESSORIES },
+     { label: 'AUTO ELECTRICS', routeName: ROUTE_NAME.AUTO_ELECTRICS },
+     { label: 'SERVICING AND MAINTENANCE', routeName: ROUTE_NAME.SERVICING_MAINTENANCE }
     ]
   },
   { label: 'SPECIALISATION', routeName: "" },
