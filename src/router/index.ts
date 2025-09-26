@@ -5,6 +5,7 @@ const components = {
   ABOUT_US: () => import("../views/AboutUs.vue"),
   AUTO_ELECTRICS: () => import("../views/AutoElectrics.vue"),
   BUILDS_FITOUTS: () => import("../views/BuildsFitOuts.vue"),
+  CAREERS: () => import("../views/Careers.vue"),
   CONTACT_US: () => import("../views/ContactUs.vue"),
   SERVICES: () => import("../views/Services.vue"),
   DESIGN_ENGINEERING: () => import("../views/DesignEngineering.vue"),
@@ -18,6 +19,7 @@ export const ROUTE_NAME = {
   ABOUT_US: "about_us",
   AUTO_ELECTRICS: "auto_electrics",
   BUILDS_FITOUTS: "builds_fitouts",
+  CAREERS: "careers",
   CONTACT_US: "contact_us",
   SERVICES: "services",
   DESIGN_ENGINEERING: "design_engineering",
@@ -41,6 +43,11 @@ export const routes = [
     path: "/builds-fitouts",
     name: ROUTE_NAME.BUILDS_FITOUTS,
     component: components.BUILDS_FITOUTS
+  },
+   {
+    path: "/careers",
+    name: ROUTE_NAME.CAREERS,
+    component: components.CAREERS
   },
   {
     path: "/contact-us",
