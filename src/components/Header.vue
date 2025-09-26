@@ -131,7 +131,8 @@ const navItems = [
     ]
   },
   { label: 'SPECIALISATION', routeName: "" },
-  { label: 'CONTACT US', routeName: "" }
+  { label: 'CONTACT US', routeName: ROUTE_NAME.CONTACT_US },
+  { label: 'CAREERS', routeName: "" },
 ]
 
 const goToRoute = (routeName: string) => {
