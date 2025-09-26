@@ -1,0 +1,7 @@
+import{C as n}from"./ContactBtn-FW1W-rlA.js";import{H as i}from"./Header-DkTDOrhy.js";import{d as a,e as o,w as t,g as r,o as s,a as e,u as c,j as d}from"./index-D5dq4JUH.js";const l="/acmtransport-prototype/assets/about_acm-Bq9813G5.jpg",v=a({__name:"AboutUs",setup(u){return(p,h)=>(s(),o(r,{class:"py-10",fluid:""},{default:t(()=>[e(i,{title:"About Us",description:`At ACM Transport Technologies, we are dedicated to excellence, delivering premium services for both emergency and non-emergency vehicles. From our beginnings in producing trims and accessories for specialised vehicles, we have grown into a trusted leader in fit-outs, bodywork, modifications, conversions, design, engineering, and manufacturing.
+
+        Our experienced team brings decades of industry expertise, ensuring every project is handled with precision, reliability, and the highest standards of quality—consistently exceeding client expectations.
+        
+        With a strong reputation and proven track record, ACM Transport Technologies is proud to serve clients such as Ambulance Victoria, Health Select – NEPT, the Australian Capital Territory Government, The Royal Children’s Hospital Melbourne, Victoria Police, Tasmanian Education, and Youth Justice.
+        
+        Experience the ACM Transport Technologies difference—where expertise and innovation come together to deliver unmatched vehicle solutions.`}),e(d,{class:"mx-auto",color:"surface-variant",image:c(l),width:"60vw",height:"50vh"},{default:t(()=>[e(n)]),_:1},8,["image"])]),_:1}))}});export{v as default};
