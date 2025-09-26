@@ -1,0 +1,1 @@
+import{_ as t,e as s,o,w as a,b as r,g as c}from"./index-BnIVWwSs.js";const n={};function i(_,e){return o(),s(c,{id:"services-overview",class:"py-10",fluid:""},{default:a(()=>e[0]||(e[0]=[r("h2",{class:"text-h4 font-weight-bold mb-8 text-center"}," Contact us ",-1)])),_:1,__:[0]})}const d=t(n,[["render",i]]);export{d as default};
