@@ -29,7 +29,6 @@
 						></v-img>
 
 						<v-card-title>{{ service.title }}</v-card-title>
-						<v-card-text>{{ service.description }}</v-card-text>
 
 						<v-card-actions>
 							<v-btn
