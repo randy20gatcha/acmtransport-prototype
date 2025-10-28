@@ -95,7 +95,7 @@
 	>
 		<v-list>
 			<template
-				v-for="item in navItems"
+				v-for="(item, i) in navItems"
 				:key="item.label"
 			>
 				<!-- If no children: normal item -->
@@ -109,7 +109,8 @@
 				<!-- If has children: use v-list-group -->
 				<v-list-group
 					v-else
-					:value="false"
+					:opened="activeIndex === i"
+					@update:opened="toggleGroup(i)"
 				>
 					<template #activator="{ props }">
 						<v-list-item
@@ -125,7 +126,7 @@
 						:key="child.label"
 						:title="child.label"
 						class="drawer-subitem"
-						@click="goToRoute(child.routeName)"
+						@click="navigate(child.routeName, true)"
 					/>
 				</v-list-group>
 			</template>
@@ -150,8 +151,16 @@ import { ROUTE_NAME } from '../router/index'
 import router from '../router'
 import { useRoute } from 'vue-router'
 
+const activeIndex = ref<number | null>(null)
 const drawer = ref(false)
 const route = useRoute()
+
+const navigate = (routeName: string, closeAfter = false) => {
+  if (routeName) {
+    goToRoute(routeName)
+  }
+  if (closeAfter) drawer.value = false // auto-close drawer
+}
 
 const navItems = [
 	{ label: 'HOME', routeName: ROUTE_NAME.HOME },
@@ -175,11 +184,40 @@ const navItems = [
 				routeName: ROUTE_NAME.SERVICING_MAINTENANCE,
 			},
 		],
+		open: false,
 	},
-	{ label: 'SPECIALISATION', routeName: '' },
+	{ label: 'SPECIALISATION', 
+      children: [
+		{
+			label: 'ACCESSIBILITY FIT OUT',
+			routeName: '',
+		},
+		{ 
+			label: 'CUSTOM WORKS AND BUILD', 
+			routeName: ''
+		},
+		{ 
+			label: 'EMERGENY AND NON EMERGENCY AMBULANCE', 
+			routeName: '' 	
+		},
+		{
+			label: 'LAW ENFORCEMENT CUSTODIAL VEHICLES',
+			routeName: '',
+		},
+		{ 
+			label: 'SPECIALISED PATIENT TRANSPORT', 
+			routeName: ''
+		},
+	  ],
+	  open: false,
+	},
 	{ label: 'CONTACT US', routeName: ROUTE_NAME.CONTACT_US },
 	{ label: 'CAREERS', routeName: ROUTE_NAME.CAREERS },
 ]
+
+const toggleGroup = (index: number) => {
+  activeIndex.value = activeIndex.value === index ? null : index
+}
 
 const goToRoute = (routeName: string) => {
 	router.push({
